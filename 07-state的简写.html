@@ -22,6 +22,8 @@
         return <h2 onClick={this.changeWeather}> 今天天气很{isHot?'炎热':'凉爽'},{wind}</h2>
       }
       // 自定义方法——————要用赋值语句加箭头函数
+
+      
       changeWeather=()=>{
         const isHot=this.state.isHot
         this.setState({isHot:!isHot})    
