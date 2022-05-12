@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>state</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- 生产环境中不建议使用 -->
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    class Weather extends React.Component {
+      state={isHot:true,wind:'微风'} 
+      render() {
+        const {isHot,wind}=this.state
+        return <h2 onClick={this.changeWeather}> 今天天气很{isHot?'炎热':'凉爽'},{wind}</h2>
+      }
+      // 自定义方法——————要用赋值语句加箭头函数
+      changeWeather=()=>{
+        const isHot=this.state.isHot
+        this.setState({isHot:!isHot})    
+      }
+    }
+    ReactDOM.render( <Weather/> , document.getElementById('app'))
+
+    /*
+      简写方式要明白类的宝马奔驰案例-->04
+    */  
+  </script>
+</body>
+
+</html>

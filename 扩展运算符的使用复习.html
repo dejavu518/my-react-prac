@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1.展开数组
+    let arr1=[1,3,5,7,9]
+    let arr2=[2,4,6,8,10]
+    let arr3=[...arr1,...arr2]
+    console.log(...arr1)//1,3,5,7,9
+    console.log(arr3)//arr1和arr2的合并
+
+    //2.作为函数的参数传递
+    function sum(...numbers){
+      return numbers.reduce((preValue,currentValue)=>{
+        return preValue+currentValue
+      })
+    }
+    console.log(sum(1,2,3))
+    //构造字面量对象时
+    
+  </script>
+</body>
+</html>

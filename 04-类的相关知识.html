@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>类的相关知识</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    /*
+    创建一个Person类
+    */
+    class Person {
+      // 构造器方法
+      constructor(name, age, hobby) {
+        // 构造器中的this指的是类的实例对象
+        this.name = name
+        this.age = age
+        this.hobby = hobby
+      }
+      // 一般方法
+      speak() {
+        // speak方法放在了哪里？
+        // Person类的原型对象上，供实例使用
+        // 通过Person实例调用speak,那么this就指的是Person实例
+        console.log(`我是${this.name},我今年${this.age},我的爱好是${this.hobby}`)
+      }
+    }
+    /*
+    创建实例对象(初始化)
+    */
+    const p1 = new Person('张三', 18, '打篮球')
+    const p2 = new Person('李四', 25, '打羽毛球')
+    p1.speak()
+    p2.speak()
+
+    /*
+      创建一个Student类，继承于Person类
+    */
+    class Student extends Person {
+      constructor(name, age, hobby, grade) {
+        // 当子类继承于父类时，必须调用super,继承父类的属性
+        // super必须放在所有属性之前
+        super(name, age, hobby)
+        this.grade = grade
+      }
+    }
+    const s1 = new Student('小红', 15, '打游戏', '五年级')
+    console.log(s1)
+
+    /*
+      宝马奔驰案例
+    */
+    class Car {
+      constructor(name, price) {
+        this.name = name
+        this.price = price
+      }
+      // 类中可以写赋值语句
+      wheel = 4
+      run = () => {
+
+      }
+    }
+    const c1 = new Car('宝马', 199)
+    const c2 = new Car('奔驰', 299)
+    console.log(c1)
+    console.log(c2)
+  </script>
+</body>
+
+</html>

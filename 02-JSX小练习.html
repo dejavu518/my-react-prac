@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSX小练习</title>
+  <!-- 核心库必须在周边库之前引入 -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- 生产环境中不建议使用 -->
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+  <!-- 创建一个容器 -->
+  <div id="test"></div>
+</body>
+<script type="text/babel">
+  // 数据
+  const data=['Angular','Vue','React']
+  //1.创建虚拟DOM
+const app=(
+  <div>
+    <h2>前端JS框架</h2>
+    <ul>
+      {data.map((item,index)=>{
+        return <li key={index}>{item}~~</li>
+      })}
+    </ul>
+  </div>
+)
+//2.渲染虚拟DOM到页面（虚拟DOM,容器）
+ReactDOM.render(app,document.getElementById('test'))
+
+</script>
+
+</html>
