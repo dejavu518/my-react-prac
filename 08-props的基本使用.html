@@ -15,8 +15,28 @@
 <body>
   <div id="app"></div>
   <script type="text/babel">
-    //  创建组件
+    /*
+    创建组件
+  */
   class Person extends React.Component{
+    constructor(props){
+      // 构造器是否是否接收props,是否传递给super,取决于是否希望在构造器中通过this访问props
+      super(props)
+      console.log('构造器',this.props)
+    }
+  /*
+    对于props的限制（要引入PropType的js库）
+  */
+  //  类型和必要性的限制
+  // static propTypes={
+  //   name:PropTypes.string.isRequired,
+  //   age:PropTypes.number,
+  //   speak:PropTypes.func
+  // }
+  // // 默认值的限制
+  // static defaultProps={
+  //   name:'小红'
+  // }
     render(){
       const{name,age,sex}=this.props
       return(
@@ -28,7 +48,9 @@
       )
     }
   }
-  //渲染虚拟DOM 
+  /*
+    渲染虚拟DOM
+  */ 
   ReactDOM.render( <Person name="ty" age="28" sex="女"/> , document.getElementById('app'))
   </script>
 </body>
