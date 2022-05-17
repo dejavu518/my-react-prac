@@ -21,9 +21,11 @@
     constructor(props){ 
     super(props) ; 
     this.state={date:new Date()} } 
+    // 组件挂载完毕
     componentDidMount(){
       this.timerID=setInterval(()=>this.tick(),1000)
     }
+    // 组件将要卸载
     componentWillUnmount(){
       clearInterval(this.timerID)
     }
@@ -32,6 +34,7 @@
         date:new Date()
       })
     }
+    // 初始化渲染、状态更新之后
     render(){ 
       return(
         <div>
@@ -45,6 +48,9 @@
     <Clock/>,
     document.getElementById('root')
   )
+  /*
+    生命周期回调函数<=>生命周期钩子函数<=>生命周期钩子<=>生命周期
+  */ 
 </script>
 
 </html>
